@@ -1,0 +1,68 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input, .textarea, .select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .starRating {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .filledStar {
+    color: gold;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .emptyStar {
+    color: #ccc;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .submitButton {
+    background: #3366FF;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submitButton:hover {
+    background: #274ABD;
+  }
+  

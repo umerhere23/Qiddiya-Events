@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background: black;
+  color: white;
+  border-top: 3px solid #3366FF;
+  border-bottom: 3px solid #3366FF;
+}
+
+.logo {
+  font-size: 24px;
+  color: #3366FF;
+  font-weight: bold;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: #3366FF;
+}
+
+.authButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.authButton {
+  background: #3366FF;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.authButton:hover {
+  background: #274ABD;
+}
