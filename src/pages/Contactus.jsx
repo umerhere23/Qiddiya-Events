@@ -3,6 +3,7 @@ import styles from './ContactUs.module.css';
 import locationIcon from '../../assets/location-icon.svg';
 import phoneIcon from '../assets/phone-icon.svg';
 import emailIcon from '../assets/email-icon.svg';
+import { FaChevronRight, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaCalendarAlt, FaTicketAlt, FaUsers } from 'react-icons/fa';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,7 @@ const ContactUs = () => {
   };
 
   return (
+    <>
     <div className={styles.contactPage}>
       <div className={styles.contactHeader}>
         <h1>Contact Us</h1>
@@ -115,6 +117,41 @@ const ContactUs = () => {
         ></iframe>
       </div>
     </div>
+    <footer className={styles.footer}>
+              <div className={styles.footerContent}>
+                <div className={styles.footerSection}>
+                  <h3>Qiddiya<span>Events</span></h3>
+                  <p>Saudi Arabia's premier entertainment destination offering world-class events and attractions.</p>
+                  <div className={styles.socialIcons}>
+                    <a href="#"><FaFacebook /></a>
+                    <a href="#"><FaTwitter /></a>
+                    <a href="#"><FaInstagram /></a>
+                  </div>
+                </div>
+                <div className={styles.footerSection}>
+                  <h4>Quick Links</h4>
+                  <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#attractions">Attractions</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                  </ul>
+                </div>
+                <div className={styles.footerSection}>
+                  <h4>Contact Info</h4>
+                  <ul className={styles.contactInfo}>
+                    <li><FaPhone /> +966 11 123 4567</li>
+                    <li><FaEnvelope /> events@qiddiya.com</li>
+                    <li><FaMapMarkerAlt /> Qiddiya City, Riyadh, Saudi Arabia</li>
+                  </ul>
+                </div>
+              </div>
+              <div className={styles.footerBottom}>
+                <p>&copy; {new Date().getFullYear()} Qiddiya Events. All rights reserved.</p>
+              </div>
+            </footer>
+</>
   );
 };
 
