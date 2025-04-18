@@ -3,19 +3,18 @@ import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAeQWOch64bOppi1UfHaKJJtHtuQ9FCXpw",
-  authDomain: "eventmangment-9fe65.firebaseapp.com",
-  databaseURL: "https://eventmangment-9fe65-default-rtdb.firebaseio.com/",
-  projectId: "eventmangment-9fe65",
-  storageBucket: "eventmangment-9fe65.firebasestorage.app",
-  messagingSenderId: "746957501000",
-  appId: "1:746957501000:web:2cd9b32cc843e8353fde7d",
-  measurementId: "G-BZZ4L2VL6Y"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const auth = getAuth(app); // Corrected this line
+const auth = getAuth(app);
 
 export { db, auth };
