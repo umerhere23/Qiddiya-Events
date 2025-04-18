@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../CSS/LandingPage.module.css';
+import styles from '../../CSS/LandingPage.module.css';
 import { FaChevronRight, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaCalendarAlt, FaTicketAlt, FaUsers } from 'react-icons/fa';
 
 const LandingPage = () => {
@@ -13,9 +13,21 @@ const LandingPage = () => {
 
   return (
     <div className={styles.container}>
+      {/* Navigation */}
+      <nav className={styles.navbar}>
+        <div className={styles.logo}>Qiddiya<span>Events</span></div>
+        <ul className={styles.navLinks}>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#attractions">Attractions</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button className={styles.menuButton}>☰</button>
+      </nav>
 
-
-       <header className={styles.hero} id="home">
+      {/* Hero Section */}
+      <header className={styles.hero} id="home">
         <div className={styles.heroContent}>
           <h1>Experience Qiddiya's Thrilling Events</h1>
           <p>Your gateway to unforgettable entertainment in Saudi Arabia's premier entertainment destination</p>
@@ -26,7 +38,8 @@ const LandingPage = () => {
         </div>
       </header>
 
-       <section className={styles.features}>
+      {/* Features Section */}
+      <section className={styles.features}>
         <div className={styles.sectionHeader}>
           <h2>Why Choose Qiddiya Events?</h2>
           <p>World-class entertainment experiences</p>
@@ -58,7 +71,7 @@ const LandingPage = () => {
         </div>
         <div className={styles.destinationGrid}>
           <div className={styles.destinationCard}>
-            <img src="https://d1xr08ehegrskg.cloudfront.net/uploads/2024/04/The-Bridgewater-Hall-International-Concert-Series-24-25-piano-recital.jpg" alt="Concert Series" />
+            <img src="https://www.qiddiya.com/wp-content/uploads/2023/05/Qiddiya-City-Entertainment-Destination.jpg" alt="Concert Series" />
             <div className={styles.destinationInfo}>
               <h3>International Concert Series</h3>
               <p>World-famous artists performing live at our state-of-the-art venue</p>
@@ -69,7 +82,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className={styles.destinationCard}>
-            <img src="https://cdn.racingnews365.com/2024/_1092x683_crop_center-center_85_none/12829129/Qiddiya-street-track-2.webp?v=1709640021" alt="Motorsport Event" />
+            <img src="https://www.qiddiya.com/wp-content/uploads/2023/05/Qiddiya-Speed-Park.jpg" alt="Motorsport Event" />
             <div className={styles.destinationInfo}>
               <h3>Qiddiya Grand Prix</h3>
               <p>High-octane motorsport action at our world-class Speed Park</p>
@@ -80,7 +93,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className={styles.destinationCard}>
-            <img src="https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2024/04/12/4315526-1732843111.jpg?itok=zWFk_xCw" alt="Family Festival" />
+            <img src="https://www.qiddiya.com/wp-content/uploads/2023/05/Qiddiya-Water-Park.jpg" alt="Family Festival" />
             <div className={styles.destinationInfo}>
               <h3>Family Fun Festival</h3>
               <p>Interactive shows, games, and activities for the whole family</p>
