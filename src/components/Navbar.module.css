@@ -1,52 +1,172 @@
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 30px;
-  background: black;
-  color: white;
-  border-top: 3px solid #3366FF;
-  border-bottom: 3px solid #3366FF;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo {
-  font-size: 24px;
-  color: #3366FF;
-  font-weight: bold;
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 40px;
+  border-radius: 30px;
 }
 
 .navLinks {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
 }
 
 .navLink {
   text-decoration: none;
-  color: white;
-  font-size: 16px;
-  transition: color 0.3s;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  display: block;
 }
 
 .navLink:hover {
-  color: #3366FF;
+  color: #007BFF;
 }
 
 .authButtons {
   display: flex;
-  gap: 10px;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .authButton {
-  background: #3366FF;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 5px;
   text-decoration: none;
-  font-size: 16px;
-  transition: background 0.3s;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  color: #000;
+  display: inline-block;
 }
 
-.authButton:hover {
-  background: #274ABD;
+.signUpButton {
+  background-color: #3B82F6;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.signUpButton:hover {
+  background-color: #2563EB;
+}
+
+/* Mobile Menu Styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: black;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobileAuthButtons {
+  display: none;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .navItem {
+    width: 100%;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .authButtons {
+    display: none;
+  }
+
+  .mobileAuthButtons {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .mobileAuthButtons .authButton {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animation for mobile menu */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navLinks.active {
+  animation: slideDown 0.3s ease forwards;
 }

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import EventList from "./pages/Events.jsx";
-import AdminPanel from "./pages/AdminPanel"; // Ensure correct import path
+import AdminPanel from "./pages/AdminPanel";  
 
 import Navbar from "./components/Navbar.jsx";
 import RegisterEvent from "../src/pages/Register.jsx";
@@ -15,6 +15,7 @@ import DeleteEvent from "./components/DeleteEvent";
 import ManageOrganizers from "./components/ManageOrganizers";
 import ManageVenues from "./components/ManageVenues";
 import MonitorAnalytics from "./components/MonitorAnalytics.jsx";
+import GalleryPage from "./components/Gallery/gallery.jsx";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <Route path="/login" element={<><Navbar /><Login /></>} />
         <Route path="/regUser" element={<><Navbar /><Register /></>} />
         <Route path="/feedback" element={<><Navbar /><SubmitFeedback /></>} />
-
+<Route path="/gallery" element={<><Navbar/><GalleryPage/></>}/>
         <Route path="admin/*" element={<AdminPanel />}> 
           <Route path="manage-visitors" element={<ManageVisitors />} />
           <Route path="generate-reports" element={<GenerateReports />} />
