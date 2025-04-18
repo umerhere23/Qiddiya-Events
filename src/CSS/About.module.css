@@ -1,0 +1,270 @@
+.aboutPage {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+   .heroSection {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+  }
+  .bgOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4; /* set your desired opacity */
+    z-index: 1;
+  }
+  
+  .heroContent {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* optional for readability */
+    border-radius: 8px;
+  }
+  .heroContent h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .heroContent p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Section Styles */
+  .section {
+    padding: 5rem 2rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .darkSection {
+    background-color: #f8f8f8;
+  }
+  
+  .textContent {
+    flex: 1;
+  }
+  
+  .textContent h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+  
+  .textContent p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  .imageContainer {
+    flex: 1;
+  }
+  
+  .aboutImage {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Values Grid */
+  .valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .valueCard {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .valueCard h3 {
+    color: #e83f43;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+  
+  /* Team Section */
+  .teamSection {
+    text-align: center;
+    background-color: #1a1a1a;
+    color: white;
+  }
+  
+  .teamSection h2 {
+    color: white;
+    margin-bottom: 3rem;
+  }
+  
+  .teamGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .teamMember {
+    background: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .teamMember:hover {
+    transform: translateY(-10px);
+  }
+  
+  .memberPhoto {
+    width: 150px;
+    height: 150px;
+    background: #444;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+  }
+  
+  .teamMember h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .teamMember p {
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+  
+  /* CTA Section */
+  .ctaSection {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('../assets/about-cta.jpg') center/cover no-repeat;
+    color: white;
+  }
+  
+  .ctaSection h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaSection p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .ctaButton {
+    background: #e83f43;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .ctaButton:hover {
+    background: #d32f2f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(232, 63, 67, 0.3);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    
+    .imageContainer, .textContent {
+      width: 100%;
+    }
+    
+    .heroContent h1 {
+      font-size: 2.8rem;
+    }
+    
+    .heroContent p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .heroSection {
+      height: 50vh;
+    }
+    
+    .heroContent h1 {
+      font-size: 2.2rem;
+    }
+    
+    .textContent h2 {
+      font-size: 2rem;
+    }
+    
+    .valuesGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .teamGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .heroSection {
+      height: 40vh;
+    }
+    
+    .heroContent h1 {
+      font-size: 1.8rem;
+    }
+    
+    .section {
+      padding: 3rem 1.5rem;
+    }
+    
+    .teamGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .ctaSection h2 {
+      font-size: 2rem;
+    }
+    
+    .ctaSection p {
+      font-size: 1.1rem;
+    }
+  }

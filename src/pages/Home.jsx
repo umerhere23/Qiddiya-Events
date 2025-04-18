@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styles from '../CSS/LandingPage.module.css';
 import { FaChevronRight, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaCalendarAlt, FaTicketAlt, FaUsers } from 'react-icons/fa';
+import Speedpark from "../assets/speedpark.jpg"
+import Waterpark from "../assets/waterpark.webp"
+import sixFlags from "../assets/sixflags.webp";
 
 const LandingPage = () => {
   const [email, setEmail] = useState('');
@@ -101,17 +104,17 @@ const LandingPage = () => {
         </div>
         <div className={styles.featureGrid}>
           <div className={styles.featureCard}>
-            <img src="https://www.qiddiya.com/wp-content/uploads/2023/05/Qiddiya-Speed-Park.jpg" alt="Speed Park" />
+            <img src={Speedpark} alt="Speed Park" />
             <h3>Speed Park</h3>
             <p>Middle East's premier motorsport destination with thrilling races</p>
           </div>
           <div className={styles.featureCard}>
-            <img src="https://www.qiddiya.com/wp-content/uploads/2023/05/Qiddiya-Water-Park.jpg" alt="Water Park" />
+            <img src={Waterpark} alt="Water Park" />
             <h3>Aqua Adventure</h3>
             <p>Massive water park with record-breaking slides and attractions</p>
           </div>
           <div className={styles.featureCard}>
-            <img src="https://www.qiddiya.com/wp-content/uploads/2023/05/Qiddiya-Six-Flags.jpg" alt="Six Flags" />
+            <img src={sixFlags} alt="Six Flags" />
             <h3>Six Flags Qiddiya</h3>
             <p>First Six Flags theme park in the region with extreme rides</p>
           </div>

@@ -16,18 +16,23 @@ import ManageOrganizers from "./components/ManageOrganizers";
 import ManageVenues from "./components/ManageVenues";
 import MonitorAnalytics from "./components/MonitorAnalytics.jsx";
 import GalleryPage from "./components/Gallery/gallery.jsx";
-
+import AboutUs from "./components/About/Aboutus.jsx";
+import ContactUs from "../src/pages/Contactus.jsx"
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<><Navbar /><Home /></>} />
         <Route path="/register-event" element={<><Navbar /><RegisterEvent /></>} />
+        <Route path="/about-us" element={<><Navbar /><AboutUs /></>} />
+
         <Route path="/events" element={<><Navbar /><EventList /></>} />
         <Route path="/login" element={<><Navbar /><Login /></>} />
         <Route path="/regUser" element={<><Navbar /><Register /></>} />
         <Route path="/feedback" element={<><Navbar /><SubmitFeedback /></>} />
 <Route path="/gallery" element={<><Navbar/><GalleryPage/></>}/>
+<Route path="/contact-us" element={<><Navbar/><ContactUs/></>}/>
+
         <Route path="admin/*" element={<AdminPanel />}> 
           <Route path="manage-visitors" element={<ManageVisitors />} />
           <Route path="generate-reports" element={<GenerateReports />} />
