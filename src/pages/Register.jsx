@@ -3,7 +3,8 @@ import { db } from "../firebase.js";
 import { ref, push, onValue } from "firebase/database";
 import { Link } from "react-router-dom";
 import styles from "./RegisterEvent.module.css";
-import { FiCalendar, FiClock, FiDollarSign, FiMapPin, FiUser, FiPlus } from "react-icons/fi";
+import { FiCalendar, FiClock, FiDollarSign, FiMapPin, FiUser, FiPlus, FiImage } from "react-icons/fi";
+import { FaRegCheckCircle } from "react-icons/fa";
 
 const RegisterEvent = () => {
   const [event, setEvent] = useState({
@@ -27,14 +28,14 @@ const RegisterEvent = () => {
   useEffect(() => {
     const venuesRef = ref(db, "venues");
     const organizersRef = ref(db, "organizers");
-  
+
     onValue(venuesRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         setVenues(Object.entries(data).map(([id, venue]) => ({ id, ...venue })));
       }
     });
-  
+
     onValue(organizersRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
@@ -42,7 +43,6 @@ const RegisterEvent = () => {
       }
     });
   }, []);
-  
 
   const handleChange = (e) => {
     setEvent({ ...event, [e.target.name]: e.target.value });
@@ -91,118 +91,154 @@ const RegisterEvent = () => {
 
   return (
     <div className={styles.registerPage}>
+      <div className={styles.gradientBackground}></div>
+      
       <div className={styles.registerContainer}>
         <div className={styles.header}>
           <h1>Create Your Event</h1>
-          <p>Fill out the form below to register your event with Qiddiya</p>
+          <p>Bring your vision to life at Qiddiya - Saudi Arabia's premier entertainment destination</p>
         </div>
 
-        <div className={styles.formContainer}>
+        <div className={styles.formWrapper}>
           <form onSubmit={handleSubmit} className={styles.eventForm}>
             <div className={styles.formSection}>
-              <h2>Event Details</h2>
+              <div className={styles.sectionHeader}>
+                <div className={styles.sectionIcon}></div>
+                <h2>Event Details</h2>
+              </div>
+              
               <div className={styles.formGroup}>
-                <label>Event Name</label>
-                <div className={styles.inputWithIcon}>
-                  <FiUser className={styles.icon} />
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter event name"
-                    value={event.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+                <label>
+                  <FiUser className={styles.labelIcon} />
+                  Event Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="e.g. Summer Music Festival 2023"
+                  value={event.name}
+                  onChange={handleChange}
+                  required
+                  className={styles.inputField}
+                />
               </div>
 
               <div className={styles.formGroup}>
-                <label>Description</label>
+                <label>
+                  <FiUser className={styles.labelIcon} />
+                  Description
+                </label>
                 <textarea
                   name="description"
-                  placeholder="Tell us about your event"
+                  placeholder="Describe your event in detail..."
                   value={event.description}
                   onChange={handleChange}
                   required
+                  className={styles.textareaField}
                 />
               </div>
 
               <div className={styles.formGroup}>
-                <label>Image URL</label>
+                <label>
+                  <FiImage className={styles.labelIcon} />
+                  Event Image URL
+                </label>
                 <input
                   type="url"
                   name="imageUrl"
-                  placeholder="Paste your event image URL"
+                  placeholder="https://example.com/event-image.jpg"
                   value={event.imageUrl}
                   onChange={handleChange}
+                  className={styles.inputField}
                 />
               </div>
             </div>
 
             <div className={styles.formSection}>
-              <h2>Date & Time</h2>
-              <div className={styles.dateTimeGroup}>
+              <div className={styles.sectionHeader}>
+                <div className={styles.sectionIcon}></div>
+                <h2>Date & Time</h2>
+              </div>
+              
+              <div className={styles.dateTimeRow}>
                 <div className={styles.formGroup}>
-                  <label>Date</label>
-                  <div className={styles.inputWithIcon}>
-                    <FiCalendar className={styles.icon} />
-                    <input
-                      type="date"
-                      name="date"
-                      value={event.date}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                  <label>
+                    <FiCalendar className={styles.labelIcon} />
+                    Event Date
+                  </label>
+                  <input
+                    type="date"
+                    name="date"
+                    value={event.date}
+                    onChange={handleChange}
+                    required
+                    className={styles.inputField}
+                  />
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label>Time</label>
-                  <div className={styles.inputWithIcon}>
-                    <FiClock className={styles.icon} />
-                    <input
-                      type="time"
-                      name="time"
-                      value={event.time}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                  <label>
+                    <FiClock className={styles.labelIcon} />
+                    Start Time
+                  </label>
+                  <input
+                    type="time"
+                    name="time"
+                    value={event.time}
+                    onChange={handleChange}
+                    required
+                    className={styles.inputField}
+                  />
                 </div>
               </div>
             </div>
 
             <div className={styles.formSection}>
-              <h2>Ticket Information</h2>
+              <div className={styles.sectionHeader}>
+                <div className={styles.sectionIcon}></div>
+                <h2>Ticket Information</h2>
+              </div>
+              
               <div className={styles.formGroup}>
-                <label>Ticket Price (SAR)</label>
-                <div className={styles.inputWithIcon}>
-                  <FiDollarSign className={styles.icon} />
+                <label>
+                  <FiDollarSign className={styles.labelIcon} />
+                  Ticket Price (SAR)
+                </label>
+                <div className={styles.priceInputContainer}>
                   <input
                     type="number"
                     name="ticketPrice"
-                    placeholder="Enter ticket price"
+                    placeholder="0.00"
                     value={event.ticketPrice}
                     onChange={handleChange}
                     min="0"
                     step="0.01"
                     required
+                    className={styles.inputField}
                   />
+                  <span className={styles.currency}>SAR</span>
                 </div>
               </div>
             </div>
 
             <div className={styles.formSection}>
-              <h2>Location & Organizer</h2>
+              <div className={styles.sectionHeader}>
+                <div className={styles.sectionIcon}></div>
+                <h2>Location & Organizer</h2>
+              </div>
+              
               <div className={styles.formGroup}>
-                <label>Venue</label>
-                <div className={styles.inputWithIcon}>
-                  <FiMapPin className={styles.icon} />
+                <label>
+                  <FiMapPin className={styles.labelIcon} />
+                  Venue
+                </label>
+                <div className={styles.selectContainer}>
                   <select
                     name="venueID"
                     value={event.venueID}
                     onChange={handleChange}
                     required
+                    className={styles.selectField}
                   >
                     <option value="">Select a venue</option>
                     {venues.map((venue) => (
@@ -211,29 +247,40 @@ const RegisterEvent = () => {
                       </option>
                     ))}
                   </select>
+                  <div className={styles.selectArrow}></div>
                 </div>
-                <div className={styles.addNewField}>
+                
+                <div className={styles.addNewContainer}>
                   <input
                     type="text"
-                    placeholder="New venue name"
+                    placeholder="Add new venue"
                     value={newVenue}
                     onChange={(e) => setNewVenue(e.target.value)}
+                    className={styles.addNewInput}
                   />
-                  <button type="button" onClick={addNewVenue} className={styles.addButton}>
+                  <button 
+                    type="button" 
+                    onClick={addNewVenue} 
+                    className={styles.addNewButton}
+                    disabled={!newVenue.trim()}
+                  >
                     <FiPlus /> Add
                   </button>
                 </div>
               </div>
 
               <div className={styles.formGroup}>
-                <label>Organizer</label>
-                <div className={styles.inputWithIcon}>
-                  <FiUser className={styles.icon} />
+                <label>
+                  <FiUser className={styles.labelIcon} />
+                  Organizer
+                </label>
+                <div className={styles.selectContainer}>
                   <select
                     name="organizerID"
                     value={event.organizerID}
                     onChange={handleChange}
                     required
+                    className={styles.selectField}
                   >
                     <option value="">Select an organizer</option>
                     {organizers.map((organizer) => (
@@ -242,15 +289,23 @@ const RegisterEvent = () => {
                       </option>
                     ))}
                   </select>
+                  <div className={styles.selectArrow}></div>
                 </div>
-                <div className={styles.addNewField}>
+                
+                <div className={styles.addNewContainer}>
                   <input
                     type="text"
-                    placeholder="New organizer name"
+                    placeholder="Add new organizer"
                     value={newOrganizer}
                     onChange={(e) => setNewOrganizer(e.target.value)}
+                    className={styles.addNewInput}
                   />
-                  <button type="button" onClick={addNewOrganizer} className={styles.addButton}>
+                  <button 
+                    type="button" 
+                    onClick={addNewOrganizer} 
+                    className={styles.addNewButton}
+                    disabled={!newOrganizer.trim()}
+                  >
                     <FiPlus /> Add
                   </button>
                 </div>
@@ -259,6 +314,7 @@ const RegisterEvent = () => {
 
             {successMessage && (
               <div className={styles.successMessage}>
+                <FaRegCheckCircle className={styles.successIcon} />
                 {successMessage}
               </div>
             )}
@@ -269,23 +325,62 @@ const RegisterEvent = () => {
                 className={styles.submitButton}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Registering...' : 'Register Event'}
+                {isSubmitting ? (
+                  <span className={styles.spinner}></span>
+                ) : (
+                  "Register Event"
+                )}
               </button>
               <Link to="/events" className={styles.viewEventsLink}>
-                View All Events
+                Browse Existing Events
               </Link>
             </div>
           </form>
 
-          <div className={styles.formIllustration}>
-            <img src="/event-registration.svg" alt="Event registration" />
-            <div className={styles.tips}>
-              <h3>Quick Tips</h3>
-              <ul>
-                <li>Provide a clear, descriptive event name</li>
-                <li>Upload high-quality images for better promotion</li>
-                <li>Set ticket prices competitively</li>
-                <li>Double-check date and time accuracy</li>
+          <div className={styles.sidePanel}>
+            <div className={styles.previewCard}>
+              <h3>Event Preview</h3>
+              {event.imageUrl ? (
+                <div 
+                  className={styles.previewImage}
+                  style={{ backgroundImage: `url(${event.imageUrl})` }}
+                ></div>
+              ) : (
+                <div className={styles.previewPlaceholder}>
+                  <FiImage className={styles.placeholderIcon} />
+                  <p>Image preview will appear here</p>
+                </div>
+              )}
+              <div className={styles.previewDetails}>
+                <h4>{event.name || "Your Event Name"}</h4>
+                <p className={styles.previewDate}>
+                  {event.date ? new Date(event.date).toLocaleDateString() : "Date not set"} • {event.time || "Time not set"}
+                </p>
+                <p className={styles.previewPrice}>
+                  {event.ticketPrice ? `SAR ${parseFloat(event.ticketPrice).toFixed(2)}` : "Price not set"}
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.tipsSection}>
+              <h3>Event Creation Tips</h3>
+              <ul className={styles.tipsList}>
+                <li>
+                  <div className={styles.tipBullet}></div>
+                  <span>Use high-quality images (min. 1200×800px)</span>
+                </li>
+                <li>
+                  <div className={styles.tipBullet}></div>
+                  <span>Detailed descriptions get 30% more engagement</span>
+                </li>
+                <li>
+                  <div className={styles.tipBullet}></div>
+                  <span>Early bird pricing boosts ticket sales</span>
+                </li>
+                <li>
+                  <div className={styles.tipBullet}></div>
+                  <span>Weekend events typically perform better</span>
+                </li>
               </ul>
             </div>
           </div>

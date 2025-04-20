@@ -1,99 +1,467 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-  }
-  
-  .card {
-    display: flex;
-    width: 750px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-  }
-  
-  .left {
-    flex: 1;
-    background: url("/your-image.jpg") center/cover no-repeat;
-    position: relative;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    display: flex;
+.registerPage {
+  min-height: 100vh;
+  padding: 40px 0;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8fafc;
+}
+
+.gradientBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  z-index: 0;
+}
+
+.registerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+  padding: 0 20px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formWrapper {
+  display: flex;
+  gap: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 0 20px;
+}
+
+.eventForm {
+  flex: 1;
+  padding: 40px;
+}
+
+.sidePanel {
+  width: 350px;
+  background: #f9fafb;
+  padding: 30px;
+  border-left: 1px solid #e5e7eb;
+}
+
+.formSection {
+  margin-bottom: 40px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.sectionHeader h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.sectionIcon {
+  width: 8px;
+  height: 30px;
+  background: #4f46e5;
+  border-radius: 4px;
+  margin-right: 12px;
+}
+
+.formGroup {
+  margin-bottom: 25px;
+}
+
+.formGroup label {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.labelIcon {
+  margin-right: 8px;
+  color: #64748b;
+}
+
+.inputField,
+.textareaField {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+}
+
+.inputField:focus,
+.textareaField:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background: white;
+}
+
+.textareaField {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.dateTimeRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.priceInputContainer {
+  position: relative;
+}
+
+.priceInputContainer .inputField {
+  padding-left: 40px;
+}
+
+.currency {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+}
+
+.selectContainer {
+  position: relative;
+}
+
+.selectField {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  appearance: none;
+  background: #f8fafc url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+  transition: all 0.3s ease;
+}
+
+.selectField:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  background-color: white;
+}
+
+.addNewContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.addNewInput {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.addNewButton {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addNewButton:hover {
+  background: #4338ca;
+}
+
+.addNewButton:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 14px 16px;
+  border-radius: 8px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  border: 1px solid #a7f3d0;
+}
+
+.successIcon {
+  font-size: 1.2rem;
+}
+
+.formActions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.submitButton {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submitButton:hover {
+  background: #4338ca;
+}
+
+.submitButton:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.viewEventsLink {
+  text-align: center;
+  color: #4f46e5;
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.viewEventsLink:hover {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+.previewCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.previewCard h3 {
+  padding: 16px;
+  font-size: 1.1rem;
+  color: #1e293b;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.previewImage {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.previewPlaceholder {
+  height: 180px;
+  background: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #64748b;
+}
+
+.placeholderIcon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.previewDetails {
+  padding: 16px;
+}
+
+.previewDetails h4 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.previewDate,
+.previewPrice {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.tipsSection h3 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tipsList {
+  list-style: none;
+  padding: 0;
+}
+
+.tipsList li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.tipBullet {
+  width: 20px;
+  height: 20px;
+  background: #e0e7ff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f46e5;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.tipsList li:nth-child(1) .tipBullet::before {
+  content: "1";
+}
+
+.tipsList li:nth-child(2) .tipBullet::before {
+  content: "2";
+}
+
+.tipsList li:nth-child(3) .tipBullet::before {
+  content: "3";
+}
+
+.tipsList li:nth-child(4) .tipBullet::before {
+  content: "4";
+}
+
+@media (max-width: 1024px) {
+  .formWrapper {
     flex-direction: column;
-    justify-content: flex-end;
   }
   
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .sidePanel {
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    border-left: none;
+    border-top: 1px solid #e5e7eb;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
   }
   
-  .text {
-    position: relative;
-    z-index: 1;
-    font-size: 18px;
+  .previewCard {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
   }
   
-  .right {
-    flex: 1;
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .eventForm {
     padding: 30px;
   }
   
-  h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    text-align: center;
-    color: #333;
+  .dateTimeRow {
+    grid-template-columns: 1fr;
   }
   
-  form {
-    display: flex;
-    flex-direction: column;
+  .sidePanel {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .registerPage {
+    padding: 20px 0;
   }
   
-  input,
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+  .header {
+    padding: 0 15px;
+    margin-bottom: 30px;
   }
   
-  button {
-    background: #3366ff;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+  .header h1 {
+    font-size: 1.8rem;
   }
   
-  button:hover {
-    background: #274abd;
+  .formWrapper {
+    margin: 0 10px;
   }
   
-  .link {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    color: #3366ff;
-    text-decoration: none;
-    font-size: 14px;
+  .eventForm {
+    padding: 25px 20px;
   }
   
-  .link:hover {
-    text-decoration: underline;
+  .sectionHeader h2 {
+    font-size: 1.3rem;
   }
   
+  .inputField,
+  .textareaField {
+    padding: 12px 14px;
+  }
+}
