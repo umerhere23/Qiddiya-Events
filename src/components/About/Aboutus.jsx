@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from '../../CSS/About.module.css';
 import teamImage from '../../assets/about-team.jpg';
-import visionImage from '../../assets/visionimage.jpg';
+import visionImage from '../../assets/architecture.webp';
 import valuesImage from '../../assets/about-values.jpg';
 import bgImage from "../../assets/lanscape2.jpg";  
+
 import { FaChevronRight, FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaCalendarAlt, FaTicketAlt, FaUsers } from 'react-icons/fa';
 
 const AboutUs = () => {
@@ -64,8 +65,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Our Values Section */}
-      <section className={styles.section}>
+       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.textContent}>
             <h2>Our Values</h2>
@@ -94,30 +94,30 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className={`${styles.section} ${styles.teamSection}`}>
+       <section className={`${styles.section} ${styles.teamSection}`}>
         <h2>Meet Our Leadership</h2>
         <div className={styles.teamGrid}>
+        {/* <div className={styles.teamMember}>
+            <div className={styles.memberPhoto}></div>
+            <h3>Layla Al-Rashid</h3>
+            <p>Marketing Director</p>
+          </div> */}
           <div className={styles.teamMember}>
             <div className={styles.memberPhoto}></div>
-            <h3>Sarah Al-Faisal</h3>
+            <h3>Yazeed Almahmud</h3>
             <p>Chief Executive Officer</p>
           </div>
           <div className={styles.teamMember}>
             <div className={styles.memberPhoto}></div>
-            <h3>Mohammed Al-Ghamdi</h3>
-            <p>Director of Events</p>
+            <h3>Fahad Alhmoudi</h3>
+            <p>Website Manager</p>
           </div>
-          <div className={styles.teamMember}>
-            <div className={styles.memberPhoto}></div>
-            <h3>Layla Al-Rashid</h3>
-            <p>Marketing Director</p>
-          </div>
-          <div className={styles.teamMember}>
+         
+          {/* <div className={styles.teamMember}>
             <div className={styles.memberPhoto}></div>
             <h3>Khalid Al-Mansour</h3>
             <p>Operations Manager</p>
-          </div>
+          </div> */}
         </div>
       </section>
 
