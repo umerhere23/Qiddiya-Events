@@ -43,8 +43,7 @@ const Navbar = () => {
         <div></div>
       </div>
       
-      {/* Navigation Links */}
-      <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
+       <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
         <li className={styles.navItem}>
           <Link to="/" className={styles.navLink} onClick={() => setMenuOpen(false)}>Home</Link>
         </li>
@@ -60,7 +59,9 @@ const Navbar = () => {
         <li className={styles.navItem}>
           <Link to="/events" className={styles.navLink} onClick={() => setMenuOpen(false)}>Events</Link>
         </li>
-        
+        <li className={styles.navItem}>
+          <Link to="/feedback" className={styles.navLink} onClick={() => setMenuOpen(false)}>Feedback</Link>
+        </li>
 
          <div className={styles.mobileAuthButtons}>
           {isAuthenticated ? (

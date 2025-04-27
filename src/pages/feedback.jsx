@@ -12,6 +12,7 @@ const SubmitFeedback = () => {
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
   const [submittedFeedbacks, setSubmittedFeedbacks] = useState({});
+  const [hoverRating, setHoverRating] = useState(0);
 
   useEffect(() => {
     const eventsRef = ref(db, "events");
@@ -41,12 +42,12 @@ const SubmitFeedback = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!userEmail || !name || !selectedEvent || !feedback || rating === 0) {
-      setMessage("All fields are required!");
+      setMessage({ text: "All fields are required!", type: "error" });
       return;
     }
 
     if (submittedFeedbacks[selectedEvent]) {
-      setMessage("You have already submitted feedback for this event.");
+      setMessage({ text: "You have already submitted feedback for this event.", type: "error" });
       return;
     }
 
@@ -62,59 +63,107 @@ const SubmitFeedback = () => {
 
     setFeedback("");
     setRating(0);
-    setMessage("Feedback submitted successfully!");
+    setMessage({ text: "Feedback submitted successfully!", type: "success" });
   };
 
   return (
     <div className={styles.container}>
-      <h2>Submit Your Feedback</h2>
-      {message && <p className={styles.message}>{message}</p>}
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className={styles.input}
-          required
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          value={userEmail}
-          onChange={(e) => setUserEmail(e.target.value)}
-          className={styles.input}
-          required
-        />
-        <select
-          value={selectedEvent}
-          onChange={(e) => setSelectedEvent(e.target.value)}
-          className={styles.select}
-        >
-          <option value="">Select an Event</option>
-          {events.map((event) => (
-            <option key={event.id} value={event.id}>{event.name}</option>
-          ))}
-        </select>
-        <textarea
-          placeholder="Your Feedback"
-          value={feedback}
-          onChange={(e) => setFeedback(e.target.value)}
-          className={styles.textarea}
-        ></textarea>
-        <div className={styles.starRating}>
-          {[1, 2, 3, 4, 5].map((star) => (
-            <span
-              key={star}
-              className={star <= rating ? styles.filledStar : styles.emptyStar}
-              onClick={() => setRating(star)}
-            >
-              ★
-            </span>
-          ))}
+      <div className={styles.backgroundOverlay}></div>
+      <div className={styles.content}>
+        <div className={styles.card}>
+          <h2 className={styles.title}>Share Your Experience</h2>
+          <p className={styles.subtitle}>We value your feedback to improve our events</p>
+          
+          {message && (
+            <div className={`${styles.message} ${styles[message.type]}`}>
+              {message.text}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.formGroup}>
+              <label htmlFor="name" className={styles.label}>Your Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="John Doe"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className={styles.input}
+                required
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="email" className={styles.label}>Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+                className={styles.input}
+                required
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="event" className={styles.label}>Select Event</label>
+              <select
+                id="event"
+                value={selectedEvent}
+                onChange={(e) => setSelectedEvent(e.target.value)}
+                className={styles.select}
+                required
+              >
+                <option value="">Choose an event...</option>
+                {events.map((event) => (
+                  <option key={event.id} value={event.id}>{event.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label htmlFor="feedback" className={styles.label}>Your Feedback</label>
+              <textarea
+                id="feedback"
+                placeholder="Share your thoughts about the event..."
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                className={styles.textarea}
+                rows="4"
+                required
+              ></textarea>
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Rating</label>
+              <div className={styles.starRating}>
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <span
+                    key={star}
+                    className={`${styles.star} ${
+                      star <= (hoverRating || rating) ? styles.filled : styles.empty
+                    }`}
+                    onClick={() => setRating(star)}
+                    onMouseEnter={() => setHoverRating(star)}
+                    onMouseLeave={() => setHoverRating(0)}
+                  >
+                    ★
+                  </span>
+                ))}
+                <span className={styles.ratingText}>
+                  {rating ? `${rating} star${rating !== 1 ? 's' : ''}` : "Select rating"}
+                </span>
+              </div>
+            </div>
+
+            <button type="submit" className={styles.submitButton}>
+              Submit Feedback
+            </button>
+          </form>
         </div>
-        <button type="submit" className={styles.submitButton}>Submit Feedback</button>
-      </form>
+      </div>
     </div>
   );
 };
