@@ -1,9 +1,8 @@
-/* EventList.module.css */
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -30,6 +29,7 @@
   border-radius: 0.5rem;
   font-size: 1rem;
   transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .searchBar:focus {
@@ -49,7 +49,7 @@
   background: white;
   border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   border: 1px solid #e2e8f0;
@@ -57,34 +57,18 @@
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* Image container styles */
-.cardImageContainer {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  background-color: #edf2f7;
-  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .cardImage {
   width: 100%;
-  height: 100%;
+  height: 180px;
   object-fit: cover;
-}
-
-.cardImageFallback {
-  width: 100%;
-  height: 100%;
+  background-color: #edf2f7;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: #718096;
 }
 
 .cardContent {
@@ -102,7 +86,6 @@
   color: #4a5568;
   font-size: 0.95rem;
   line-height: 1.5;
-  margin-bottom: 1rem;
 }
 
 .cardMeta {
@@ -117,23 +100,22 @@
   margin-right: 0.25rem;
 }
 
-.ratingBadge {
-  display: inline-flex;
-  align-items: center;
-  background: #f6e05e;
-  color: #975a16;
-  padding: 0.25rem 0.5rem;
-  border-radius: 9999px;
+.registerLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4299e1;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
   font-weight: 600;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
 }
 
-.ratingBadge svg {
-  margin-right: 0.25rem;
+.registerLink:hover {
+  background-color: #3182ce;
 }
 
-/* Modal styles */
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -145,6 +127,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
 .modalContent {
@@ -156,7 +139,19 @@
   overflow-y: auto;
   padding: 2rem;
   position: relative;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .closeButton {
@@ -168,6 +163,11 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: #718096;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #e53e3e;
 }
 
 .modalTitle {
@@ -223,4 +223,20 @@
 .noFeedback {
   color: #718096;
   font-style: italic;
+}
+
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  background: #f6e05e;
+  color: #975a16;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.ratingBadge svg {
+  margin-right: 0.25rem;
 }

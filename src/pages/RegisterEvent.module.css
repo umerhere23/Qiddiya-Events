@@ -12,7 +12,7 @@
   left: 0;
   right: 0;
   height: 300px;
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #F26C23 0%, #7c3aed 100%);
   z-index: 0;
 }
 
@@ -84,7 +84,7 @@
 .sectionIcon {
   width: 8px;
   height: 30px;
-  background: #4f46e5;
+  background: #F26C23;
   border-radius: 4px;
   margin-right: 12px;
 }
@@ -121,7 +121,7 @@
 .inputField:focus,
 .textareaField:focus {
   outline: none;
-  border-color: #4f46e5;
+  border-color: #F26C23;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
   background: white;
 }
@@ -173,7 +173,7 @@
 
 .selectField:focus {
   outline: none;
-  border-color: #4f46e5;
+  border-color: #F26C23;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
   background-color: white;
 }
@@ -193,7 +193,7 @@
 }
 
 .addNewButton {
-  background: #4f46e5;
+  background: #F26C23;
   color: white;
   border: none;
   padding: 0 16px;
@@ -207,7 +207,7 @@
 }
 
 .addNewButton:hover {
-  background: #4338ca;
+  background: #e9854e;
 }
 
 .addNewButton:disabled {
@@ -240,7 +240,7 @@
 }
 
 .submitButton {
-  background: #4f46e5;
+  background: #F26C23;
   color: white;
   border: none;
   padding: 14px;
@@ -255,7 +255,7 @@
 }
 
 .submitButton:hover {
-  background: #4338ca;
+  background: #e9854e;
 }
 
 .submitButton:disabled {
@@ -278,7 +278,7 @@
 
 .viewEventsLink {
   text-align: center;
-  color: #4f46e5;
+  color: #F26C23;
   font-size: 0.95rem;
   text-decoration: none;
   font-weight: 500;
@@ -286,7 +286,7 @@
 }
 
 .viewEventsLink:hover {
-  color: #4338ca;
+  color: #e9854e;
   text-decoration: underline;
 }
 
@@ -371,7 +371,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #4f46e5;
+  color: #F26C23;
   font-size: 0.7rem;
   font-weight: bold;
 }

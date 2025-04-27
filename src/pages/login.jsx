@@ -61,7 +61,7 @@ const Login = () => {
     <div className={styles.loginPage}>
       <div className={styles.loginContainer}>
         <div className={styles.loginHeader}>
-          <img src="/logo.svg" alt="Qiddiya Events" className={styles.logo} />
+          <img src={`http://localhost:5173/src/assets/logo.jpg`} alt="Qiddiya Events" className={styles.logo} />
           <h1>Welcome Back</h1>
           <p>Sign in to access your account</p>
         </div>

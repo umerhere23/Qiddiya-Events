@@ -29,7 +29,7 @@
   }
   
   .logo span {
-    color: #e83f43;
+    color: #F26C23;
   }
   
   .navLinks {
@@ -46,7 +46,7 @@
   }
   
   .navLinks a:hover {
-    color: #e83f43;
+    color: #F26C23;
   }
   
   .menuButton {
@@ -97,7 +97,7 @@
   }
   
   .primaryButton {
-    background-color: #e83f43;
+    background-color: #F26C23;
     color: white;
     border: none;
   }
@@ -228,7 +228,7 @@ height: auto;  }
     gap: 0.5rem;
     background: none;
     border: none;
-    color: #e83f43;
+    color: #F26C23;
     font-weight: 600;
     cursor: pointer;
     transition: color 0.3s ease;
@@ -273,7 +273,7 @@ height: auto;  }
   
   .newsletterForm button {
     padding: 0 2rem;
-    background-color: #e83f43;
+    background-color: #F26C23;
     color: white;
     border: none;
     border-radius: 0 30px 30px 0;
@@ -306,7 +306,7 @@ height: auto;  }
   }
   
   .footerSection h3 span {
-    color: #e83f43;
+    color: #F26C23;
   }
   
   .footerSection p {
@@ -326,7 +326,7 @@ height: auto;  }
   }
   
   .socialIcons a:hover {
-    color: #e83f43;
+    color: #F26C23;
   }
   
   .footerSection h4 {

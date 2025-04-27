@@ -91,7 +91,7 @@ const EventList = () => {
       <div className={styles.eventGrid}>
         {filteredEvents.map((evt) => (
           <div key={evt.id} className={styles.card} onClick={() => handleShow(evt)}>
-           <img src={evt.imageUrl} alt="" /> 
+            {getPlaceholderImage(evt.name)}
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>{evt.name}</h3>
               <p className={styles.cardDetails}>

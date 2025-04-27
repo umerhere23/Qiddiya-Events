@@ -52,7 +52,7 @@
   }
   
   .filterButton.active {
-    background-color: #e83f43;
+    background-color: #F26C23;
     color: white;
   }
   
@@ -282,7 +282,7 @@
   }
   
   .footerSection h3 span {
-    color: #e83f43;
+    color: #F26C23;
   }
   
   .footerSection p {
@@ -302,7 +302,7 @@
   }
   
   .socialIcons a:hover {
-    color: #e83f43;
+    color: #F26C23;
   }
   
   .footerSection h4 {
