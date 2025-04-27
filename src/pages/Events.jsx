@@ -65,8 +65,7 @@ const EventList = () => {
     setSelectedEvent(null);
   };
 
-  // Function to generate a placeholder image based on event name
-  const getPlaceholderImage = (name) => {
+   const getPlaceholderImage = (name) => {
     const colors = ['#4299e1', '#48bb78', '#9f7aea', '#ed8936', '#e53e3e'];
     const color = colors[name.length % colors.length];
     return (
@@ -92,7 +91,7 @@ const EventList = () => {
       <div className={styles.eventGrid}>
         {filteredEvents.map((evt) => (
           <div key={evt.id} className={styles.card} onClick={() => handleShow(evt)}>
-            {getPlaceholderImage(evt.name)}
+           <img src={evt.imageUrl} alt="" /> 
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>{evt.name}</h3>
               <p className={styles.cardDetails}>

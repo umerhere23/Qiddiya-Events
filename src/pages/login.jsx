@@ -39,7 +39,7 @@ const Login = () => {
             navigate("/admin");
             break;
           case "organizer":
-            navigate("/organizer-dashboard");
+            navigate("/register-event");
             break;
           default:
             navigate("/");

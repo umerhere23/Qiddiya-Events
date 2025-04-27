@@ -1,13 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux"; 
+import { logout } from "../redux/userSlice"; // Assuming you have a logout action
 import { useState } from "react";
 import styles from "./Navbar.module.css"; 
 import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated); // 👈 get auth status
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/"); // after logout, send to homepage
   };
 
   return (
@@ -49,32 +60,52 @@ const Navbar = () => {
         <li className={styles.navItem}>
           <Link to="/events" className={styles.navLink} onClick={() => setMenuOpen(false)}>Events</Link>
         </li>
-        <li className={styles.navItem}>
-          <Link to="/register-event" className={styles.navLink} onClick={() => setMenuOpen(false)}>Register Event</Link>
-        </li>
         
-        {/* Mobile-only auth buttons */}
-        <div className={styles.mobileAuthButtons}>
-          <Link 
-            to="/login" 
-            className={styles.authButton}
-            onClick={() => setMenuOpen(false)}
-          >
-            Login
-          </Link>
-          <Link 
-            to="/regUser" 
-            className={`${styles.authButton} ${styles.signUpButton}`}
-            onClick={() => setMenuOpen(false)}
-          >
-            Sign Up
-          </Link>
+
+         <div className={styles.mobileAuthButtons}>
+          {isAuthenticated ? (
+            <button 
+              className={styles.authButton} 
+              onClick={() => { handleLogout(); setMenuOpen(false); }}
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link 
+                to="/login" 
+                className={styles.authButton}
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+              <Link 
+                to="/regUser" 
+                className={`${styles.authButton} ${styles.signUpButton}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </ul>
-      
-       <div className={styles.authButtons}>
-        <Link to="/login" className={styles.authButton}>Login</Link>
-        <Link to="/regUser" className={`${styles.authButton} ${styles.signUpButton}`}>Sign Up</Link>
+
+      {/* Desktop auth buttons */}
+      <div className={styles.authButtons}>
+        {isAuthenticated ? (
+          <button 
+            className={styles.authButton} 
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        ) : (
+          <>
+            <Link to="/login" className={styles.authButton}>Login</Link>
+            <Link to="/regUser" className={`${styles.authButton} ${styles.signUpButton}`}>Sign Up</Link>
+          </>
+        )}
       </div>
     </nav>
   );

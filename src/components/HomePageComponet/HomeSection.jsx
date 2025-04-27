@@ -77,7 +77,7 @@ const LandingPage = () => {
               <p>World-famous artists performing live at our state-of-the-art venue</p>
               <div className={styles.eventDate}>June 15-30, 2023</div>
               <button className={styles.destinationButton}>
-                Book Now <FaChevronRight />
+                New Event <FaChevronRight />
               </button>
             </div>
           </div>
@@ -88,7 +88,7 @@ const LandingPage = () => {
               <p>High-octane motorsport action at our world-class Speed Park</p>
               <div className={styles.eventDate}>July 10-12, 2023</div>
               <button className={styles.destinationButton}>
-                Book Now <FaChevronRight />
+                New Event <FaChevronRight />
               </button>
             </div>
           </div>
@@ -99,7 +99,7 @@ const LandingPage = () => {
               <p>Interactive shows, games, and activities for the whole family</p>
               <div className={styles.eventDate}>August 5-20, 2023</div>
               <button className={styles.destinationButton}>
-                Book Now <FaChevronRight />
+                New Event <FaChevronRight />
               </button>
             </div>
           </div>
