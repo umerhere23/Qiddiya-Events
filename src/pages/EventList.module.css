@@ -1,75 +1,242 @@
 .container {
-  padding: 20px;
-  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 700;
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.searchBar:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
 }
 
 .eventGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .card {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  transition: transform 0.2s;
+  border: 1px solid #e2e8f0;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cardImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: #edf2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #718096;
+}
+
+.cardContent {
+  padding: 1.25rem;
 }
 
 .cardTitle {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
 }
 
 .cardDetails {
-  font-size: 14px;
-  margin-top: 10px;
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.cardMeta svg {
+  margin-right: 0.25rem;
 }
 
 .registerLink {
   display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  background: #007bff;
+  padding: 0.75rem 1.5rem;
+  background-color: #4299e1;
   color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.registerLink:hover {
+  background-color: #3182ce;
 }
 
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
 .modalContent {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 2rem;
   position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #718096;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #e53e3e;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.modalDetails {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.modalSectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.feedbackList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feedbackItem {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid #4299e1;
+}
+
+.feedbackAuthor {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.feedbackText {
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+.feedbackRating {
+  color: #ecc94b;
+  font-weight: 600;
+}
+
+.noFeedback {
+  color: #718096;
+  font-style: italic;
+}
+
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  background: #f6e05e;
+  color: #975a16;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.ratingBadge svg {
+  margin-right: 0.25rem;
 }

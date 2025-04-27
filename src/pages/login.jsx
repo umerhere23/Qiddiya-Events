@@ -107,7 +107,7 @@ const Login = () => {
         </form>
 
         <div className={styles.signupLink}>
-          Don't have an account? <a href="/register">Sign up</a>
+          Don't have an account? <a href="/regUser">Sign up</a>
         </div>
       </div>
     </div>
