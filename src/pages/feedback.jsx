@@ -86,7 +86,7 @@ const SubmitFeedback = () => {
               <input
                 type="text"
                 id="name"
-                placeholder="John Doe"
+                placeholder="Alsahar"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className={styles.input}
