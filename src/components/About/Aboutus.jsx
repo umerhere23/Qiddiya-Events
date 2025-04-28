@@ -24,8 +24,7 @@ const AboutUs = () => {
       </div>
     </section>
 
-      {/* Our Story Section */}
-      <section className={styles.section}>
+       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.textContent}>
             <h2>Our Story</h2>
@@ -45,8 +44,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Our Vision Section */}
-      <section className={`${styles.section} ${styles.darkSection}`}>
+       <section className={`${styles.section} ${styles.darkSection}`}>
         <div className={styles.container}>
           <div className={styles.imageContainer}>
             <img src={visionImage} alt="Qiddiya vision" className={styles.aboutImage} />
@@ -97,11 +95,7 @@ const AboutUs = () => {
        <section className={`${styles.section} ${styles.teamSection}`}>
         <h2>Meet Our Leadership</h2>
         <div className={styles.teamGrid}>
-        {/* <div className={styles.teamMember}>
-            <div className={styles.memberPhoto}></div>
-            <h3>Layla Al-Rashid</h3>
-            <p>Marketing Director</p>
-          </div> */}
+     
           <div className={styles.teamMember}>
             <div className={styles.memberPhoto}></div>
             <h3>Yazeed Almahmud</h3>
@@ -113,16 +107,11 @@ const AboutUs = () => {
             <p>Website Manager</p>
           </div>
          
-          {/* <div className={styles.teamMember}>
-            <div className={styles.memberPhoto}></div>
-            <h3>Khalid Al-Mansour</h3>
-            <p>Operations Manager</p>
-          </div> */}
+        
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className={styles.ctaSection}>
+       <section className={styles.ctaSection}>
         <h2>Ready to Experience Qiddiya?</h2>
         <p>Join us for our next unforgettable event</p>
         <button className={styles.ctaButton}>View Upcoming Events</button>
