@@ -156,7 +156,7 @@ const LandingPage = () => {
             <ul>
               <li><a href="#home">Home</a></li>
               <li><a href="#events">Events</a></li>
-              <li><a href="#attractions">Attractions</a></li>
+              <li><a href="#attractions">Login</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -164,7 +164,7 @@ const LandingPage = () => {
           <div className={styles.footerSection}>
             <h4>Contact Info</h4>
             <ul className={styles.contactInfo}>
-              <li><FaPhone /> +966 11 123 4567</li>
+              <li><FaPhone /> +966 11 111111</li>
               <li><FaEnvelope /> events@qiddiya.com</li>
               <li><FaMapMarkerAlt /> Qiddiya City, Riyadh, Saudi Arabia</li>
             </ul>
